@@ -48,6 +48,14 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Media Type"
+                android:id="@+id/mediaTextView"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorAccent"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

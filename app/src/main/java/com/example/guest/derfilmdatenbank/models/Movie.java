@@ -21,12 +21,13 @@ public class Movie {
     private double mRating;
     private ArrayList<Person> mActors;
 
-    public Movie(String title, String imageUrl, String id, double rating, String overview) {
+    public Movie(String title, String imageUrl, String id, double rating, String overview, String mediaType) {
         this.mTitle = title;
         this.mUrlImage = imageUrl;
         this.mId = id;
         this.mRating = rating;
         this.mOverview = overview;
+        this.mMediaType = mediaType;
     }
 
     public Movie(String title, String imageUrl, String id, String character, String year, String mediatype) {

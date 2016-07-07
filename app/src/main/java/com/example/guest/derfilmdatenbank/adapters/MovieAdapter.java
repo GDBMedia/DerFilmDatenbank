@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 import com.example.guest.derfilmdatenbank.R;
 import com.example.guest.derfilmdatenbank.models.Movie;
+import com.example.guest.derfilmdatenbank.ui.ActorDetailActivity;
 import com.example.guest.derfilmdatenbank.ui.MovieDetailActivity;
+import com.example.guest.derfilmdatenbank.ui.TvDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,6 +53,7 @@ public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnC
     @Bind(R.id.actorNameTextView) TextView mNameTextView;
     @Bind(R.id.biographyTextView) TextView mDescriptionTextView;
     @Bind(R.id.ratingTextView) TextView mRatingTextView;
+    @Bind(R.id.mediaTextView) TextView mMediaTextView;
 
     private Context mContext;
 
@@ -72,12 +75,31 @@ public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnC
         mNameTextView.setText(Movie.getTitle());
         mDescriptionTextView.setText(cutDescription);
         mRatingTextView.setText("Rating: " + Movie.getRating() + "/10");
+        if(Movie.getMediaType().equals("movie")){
+            mMediaTextView.setText("Movie");
+        }
+        else if(Movie.getMediaType().equals("tv")){
+            mMediaTextView.setText("TV");
+        }
+        else if(Movie.getMediaType().equals("person")){
+            mMediaTextView.setText("Person");
+        }
+
     }
 
     @Override
     public void onClick(View v) {
         int itemPosition = getLayoutPosition();
-        Intent intent = new Intent(mContext, MovieDetailActivity.class);
+        Intent intent = null;
+        if(mMovies.get(itemPosition).getMediaType().equals("movie")){
+            intent = new Intent(mContext, MovieDetailActivity.class);
+        }
+        else if(mMovies.get(itemPosition).getMediaType().equals("tv")){
+            intent = new Intent(mContext, TvDetailActivity.class);
+        }
+        else if(mMovies.get(itemPosition).getMediaType().equals("person")){
+            intent = new Intent(mContext, ActorDetailActivity.class);
+        }
         intent.putExtra("id", mMovies.get(itemPosition).getId());
         mContext.startActivity(intent);
     }

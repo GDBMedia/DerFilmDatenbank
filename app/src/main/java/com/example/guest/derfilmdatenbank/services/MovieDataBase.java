@@ -313,7 +313,7 @@ public class MovieDataBase {
                     String id = Integer.toString(movieJSON.getInt("id"));
                     double rating = movieJSON.getDouble("vote_average");
                     String overview = movieJSON.getString("overview");
-                    Movie movie = new Movie(title, imageUrl, id, rating, overview);
+                    Movie movie = new Movie(title, imageUrl, id, rating, overview, "movie");
 
                     movies.add(movie);
                 }
@@ -357,7 +357,7 @@ public class MovieDataBase {
                     }
                     Log.d("title", title);
                     String id = Integer.toString(movieJSON.getInt("id"));
-                    Movie movie = new Movie(title, imageUrl, id, rating, overview);
+                    Movie movie = new Movie(title, imageUrl, id, rating, overview, mediatype);
 
                     movies.add(movie);
                 }
