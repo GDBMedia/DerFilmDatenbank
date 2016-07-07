@@ -11,7 +11,7 @@ public class Constants {
     public static final String MOVIE_BASE_URL = "http://api.themoviedb.org/3/movie/";
     public static final String PERSON_BASE_URL = "http://api.themoviedb.org/3/person/";
     public static final String TV_BASE_URL = "http://api.themoviedb.org/3/tv/";
-    public static final String IMAGE_BASE_URL = " https://image.tmdb.org/t/p/w500/";
+    public static final String IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500/";
     public static final String QUERY_PARAM = "query";
     public static final String APPEND_PARAM = "append_to_response";
     public static final String FILM_APPEND_PARAM_ANS = "credits,images";
