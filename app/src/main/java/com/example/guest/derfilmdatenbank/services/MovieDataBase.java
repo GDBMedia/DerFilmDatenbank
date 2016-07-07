@@ -3,6 +3,7 @@ package com.example.guest.derfilmdatenbank.services;
 /**
  * Created by Guest on 7/6/16.
  */
+
 import android.util.Log;
 
 import com.example.guest.derfilmdatenbank.Constants;
@@ -19,7 +20,6 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import okhttp3.Callback;
 import okhttp3.Call;
@@ -65,6 +65,7 @@ public class MovieDataBase {
 
 
     public static void movie(String id, Callback callback){
+        Log.d("id", id);
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
@@ -149,7 +150,11 @@ public class MovieDataBase {
                     for (int y = 0; y < actorsJSON.length(); y++) {
                         JSONObject actorsArray = actorsJSON.getJSONObject(y);
                         String actorId = Integer.toString(actorsArray.getInt("id"));
-                        Actors.add(new Person(actorsArray.getString("name"), actorsArray.getString("character"), actorId , Constants.IMAGE_BASE_URL + actorsArray.getString("profile_path")));
+                        String actorPic = actorsArray.optString("profile_path", null);
+                        if(actorPic != "null"){
+                            actorPic = Constants.IMAGE_BASE_URL + actorPic;
+                        }
+                        Actors.add(new Person(actorsArray.getString("name"), actorsArray.getString("character"), actorId , actorPic));
                     }
 
                     movie = new Movie(title, imageUrl, id, rating, overview, reformattedStr, formatter.format(amount), runtime, Actors);

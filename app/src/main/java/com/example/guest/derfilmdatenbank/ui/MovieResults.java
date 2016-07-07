@@ -1,14 +1,12 @@
 package com.example.guest.derfilmdatenbank.ui;
 
 import android.app.SearchManager;
-import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.util.Log;
 
 import com.example.guest.derfilmdatenbank.R;
 import com.example.guest.derfilmdatenbank.adapters.MovieAdapter;
@@ -18,15 +16,14 @@ import com.example.guest.derfilmdatenbank.services.MovieDataBase;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Callback;
-import okhttp3.Call;
-import okhttp3.Response;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+public class MovieResults extends AppCompatActivity {
+    @Bind(R.id.recycler3View) RecyclerView mRecyclerView;
     private MovieAdapter mAdapter;
 
     public ArrayList<Movie> mMovies = new ArrayList<>();
@@ -34,26 +31,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_movie_results);
         ButterKnife.bind(this);
-        getNowPlaying();
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
-
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        return true;
+        handleIntent(getIntent());
     }
 
-    private void getNowPlaying() {
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            getSearch(query);
+        }
+    }
+    private void getSearch(String query) {
         final MovieDataBase movieDatabase = new MovieDataBase();
-        movieDatabase.nowplaying(new Callback() {
+        movieDatabase.search(query, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -63,14 +55,16 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mMovies = movieDatabase.processMovies(response);
 
-                MainActivity.this.runOnUiThread(new Runnable() {
+
+
+                MovieResults.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         mAdapter = new MovieAdapter(getApplicationContext(), mMovies);
+                        Log.d("title", mAdapter.toString());
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(MainActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MovieResults.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }

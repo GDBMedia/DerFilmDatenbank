@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.guest.derfilmdatenbank.R;
+import com.example.guest.derfilmdatenbank.adapters.ActorAdapter;
 import com.example.guest.derfilmdatenbank.adapters.MovieAdapter;
 import com.example.guest.derfilmdatenbank.models.Movie;
+import com.example.guest.derfilmdatenbank.models.Person;
 import com.example.guest.derfilmdatenbank.services.MovieDataBase;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,6 +34,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     @Bind(R.id.releaseTextView) TextView mRelease;
     @Bind(R.id.revenueTextView) TextView mRevenue;
     @Bind(R.id.runtimeTextView) TextView mRuntime;
+    @Bind(R.id.recycler2View) RecyclerView mRecyclerView;
+    private ActorAdapter mAdapter;
+    private ArrayList<Person> mActors = new ArrayList<>();
 
 
     @Override
@@ -59,6 +65,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
+                        mActors = mMovie.getActors();
                         Picasso.with(MovieDetailActivity.this).load(mMovie.getImageUrl()).into(mImageView);
                         mMovieName.setText(mMovie.getTitle());
                         mDescription.setText(mMovie.getOverview());
@@ -66,6 +73,12 @@ public class MovieDetailActivity extends AppCompatActivity {
                         mRuntime.setText("Runtime: " + mMovie.getRuntime() + " Minutes");
                         mRevenue.setText("Revenue: $" + mMovie.getRevenue());
                         mRating.setText("Rating: " + mMovie.getRating() + "/10");
+                        mAdapter = new ActorAdapter(getApplicationContext(), mActors);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(MovieDetailActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
 
                 });

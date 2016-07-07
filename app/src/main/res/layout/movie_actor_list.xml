@@ -5,49 +5,37 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="110dp"
-        android:layout_height="160dp"
-        android:id="@+id/movieImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/actorImageView"
         android:scaleType="centerCrop"
         android:src="@drawable/mac"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="#ffffff"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/colorPrimary">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/movieNameTextView"
+            android:id="@+id/actorNameTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Movie Name"
-            android:textColor="@color/colorPrimary"/>
+            android:text="Actor Name"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hey"
-            android:id="@+id/descriptionTextView"
+            android:text="Character"
+            android:id="@+id/characterTextView"
             android:layout_below="@+id/movieNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rating"
-                android:id="@+id/ratingTextView"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
-        </RelativeLayout>
+            android:textStyle="italic"
+            android:textColor="@color/otherText"/>
     </LinearLayout>
 </LinearLayout>

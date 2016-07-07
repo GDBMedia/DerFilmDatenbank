@@ -3,7 +3,6 @@ package com.example.guest.derfilmdatenbank.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import com.example.guest.derfilmdatenbank.R;
 import com.example.guest.derfilmdatenbank.models.Movie;
 import com.example.guest.derfilmdatenbank.ui.MovieDetailActivity;
 import com.squareup.picasso.Picasso;
-
-import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
