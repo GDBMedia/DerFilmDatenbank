@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
-
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="220dp"
@@ -25,13 +22,13 @@
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="180dp"
-                android:id="@+id/actorImageView"
+                android:id="@+id/tvImageView"
                 android:scaleType="centerCrop" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/actorImageView"
-                android:layout_toRightOf="@+id/actorImageView"
+                android:layout_toEndOf="@+id/tvImageView"
+                android:layout_toRightOf="@+id/tvImageView"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:id="@+id/header">
@@ -39,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Loading..."
-                    android:id="@+id/actorNameTextView"
+                    android:id="@+id/tvNameTextView"
                     android:textSize="20sp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -48,23 +45,29 @@
                     android:layout_toLeftOf="@+id/ratingTextView"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingTextView"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+
             </RelativeLayout>
 
 
             <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
-                android:layout_toEndOf="@+id/actorImageView"
-                android:layout_toRightOf="@+id/actorImageView"
+                android:layout_toEndOf="@+id/tvImageView"
+                android:layout_toRightOf="@+id/tvImageView"
                 android:layout_below="@+id/header">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_toEndOf="@+id/actorImageView"
-                android:layout_toRightOf="@+id/actorImageView"
-                android:id="@+id/biographyTextView"
-                android:layout_below="@+id/header"
-                android:textStyle="italic" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/biographyTextView"
+                    android:textStyle="italic" />
             </ScrollView>
         </RelativeLayout>
 
@@ -89,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/birthTextView"
+                    android:id="@+id/firstAirTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
@@ -98,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/deathTextView"
+                    android:id="@+id/lastAirTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
@@ -106,7 +109,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/placeofbirthTextView"
+                    android:id="@+id/numSeasonsTextView"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/otherText"
+                    android:gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numEpisodesTextView"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/otherText"
+                    android:gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statusTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
@@ -117,11 +136,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/wrapper"
-                android:id="@+id/recycler4View"/>
+                android:id="@+id/recycler5View"/>
 
         </RelativeLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>
 

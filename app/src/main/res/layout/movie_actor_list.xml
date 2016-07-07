@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Character"
             android:id="@+id/characterTextView"
-            android:layout_below="@+id/movieNameTextView"
+            android:layout_below="@+id/actorNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic"

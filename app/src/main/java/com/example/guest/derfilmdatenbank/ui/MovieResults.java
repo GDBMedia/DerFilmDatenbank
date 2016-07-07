@@ -53,7 +53,7 @@ public class MovieResults extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) {
-                mMovies = movieDatabase.processMovies(response);
+                mMovies = movieDatabase.processSearchedMovies(response);
 
 
 

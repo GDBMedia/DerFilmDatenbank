@@ -15,16 +15,27 @@ public class Movie {
     private String mReleaseDate;
     private String mRevenue;
     private String mRuntime;
+    private String mCharacter;
+    private String mYear;
+    private String mMediaType;
     private double mRating;
     private ArrayList<Person> mActors;
 
-    public Movie(String title, String imageUrl, String id, double rating, String overview, String releaseDate) {
+    public Movie(String title, String imageUrl, String id, double rating, String overview) {
         this.mTitle = title;
         this.mUrlImage = imageUrl;
         this.mId = id;
         this.mRating = rating;
         this.mOverview = overview;
-        this.mReleaseDate = releaseDate;
+    }
+
+    public Movie(String title, String imageUrl, String id, String character, String year, String mediatype) {
+        this.mTitle = title;
+        this.mUrlImage = imageUrl;
+        this.mId = id;
+        this.mCharacter = character;
+        this.mYear = year;
+        this.mMediaType = mediatype;
     }
 
     public Movie(String title, String imageUrl, String id, double rating, String overview, String releaseDate, String revenue, String runtime, ArrayList<Person> actors) {
@@ -39,7 +50,9 @@ public class Movie {
         this.mActors = actors;
     }
 
-
+    public String getCharacter() {
+        return mCharacter;
+    }
     public String getRevenue() {
         return mRevenue;
     }
@@ -68,6 +81,12 @@ public class Movie {
     }
     public String getReleaseDate(){
         return mReleaseDate;
+    }
+    public String getYear() {
+        return mYear;
+    }
+    public String getMediaType() {
+        return mMediaType;
     }
     public ArrayList<Person> getActors() {
         return mActors;

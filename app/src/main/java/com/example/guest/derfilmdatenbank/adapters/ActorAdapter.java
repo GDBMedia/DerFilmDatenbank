@@ -63,8 +63,7 @@ public class ActorAdapter extends RecyclerView.Adapter<ActorAdapter.ActorViewHol
         }
 
         public void bindActor(Person actor) {
-            if (actor.getPicture() == "null"){
-                Log.d("status", "null");
+            if (actor.getPicture().equals("null")){
                 mActorImageView.setImageResource(R.drawable.actorsilloutte);
             }else{
                 Picasso.with(mContext).load(actor.getPicture()).into(mActorImageView);

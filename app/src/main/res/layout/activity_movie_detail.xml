@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,13 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
-
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="220dp"
             android:background="@android:color/white"
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
@@ -25,13 +22,13 @@
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="180dp"
-                android:id="@+id/movieImageView"
+                android:id="@+id/actorImageView"
                 android:scaleType="centerCrop" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/movieImageView"
-                android:layout_toRightOf="@+id/movieImageView"
+                android:layout_toEndOf="@+id/actorImageView"
+                android:layout_toRightOf="@+id/actorImageView"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:id="@+id/header">
@@ -39,14 +36,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Loading..."
-                    android:id="@+id/movieNameTextView"
+                    android:id="@+id/actorNameTextView"
                     android:textSize="20sp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_toStartOf="@+id/ratingTextView"
                     android:layout_toLeftOf="@+id/ratingTextView"
-
                     android:textStyle="bold" />
 
                 <TextView
@@ -61,17 +57,18 @@
             </RelativeLayout>
 
 
-
+            <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/actorImageView"
+                android:layout_toRightOf="@+id/actorImageView"
+                android:layout_below="@+id/header">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_toEndOf="@+id/movieImageView"
-                android:layout_toRightOf="@+id/movieImageView"
-                android:id="@+id/descriptionTextView"
-                android:layout_below="@+id/header"
+                android:id="@+id/biographyTextView"
                 android:textStyle="italic" />
+            </ScrollView>
         </RelativeLayout>
 
         <RelativeLayout
@@ -87,40 +84,35 @@
                 android:layout_alignParentStart="true"
                 android:id="@+id/wrapper"
                 android:paddingLeft="30dp"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:paddingRight="30dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/releaseTextView"
-                    android:drawablePadding="4dp"
+                    android:id="@+id/birthTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
-                    android:layout_marginBottom="10dp"
                     android:gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/runtimeTextView"
+                    android:id="@+id/deathTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
-                    android:layout_marginBottom="10dp"
                     android:gravity="center_vertical"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/revenueTextView"
+                    android:id="@+id/placeofbirthTextView"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/otherText"
-                    android:layout_marginBottom="10dp"
                     android:gravity="center_vertical"/>
 
             </LinearLayout>
@@ -133,5 +125,6 @@
         </RelativeLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

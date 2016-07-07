@@ -6,7 +6,7 @@ package com.example.guest.derfilmdatenbank;
 public class Constants {
 
     public static final String API_KEY = BuildConfig.API_KEY;
-    public static final String SEARCH_BASE_URL = "http://api.themoviedb.org/3/search/movie?";
+    public static final String SEARCH_BASE_URL = "http://api.themoviedb.org/3/search/multi?";
     public static final String NOW_BASE_URL = "http://api.themoviedb.org/3/movie/now_playing?";
     public static final String MOVIE_BASE_URL = "http://api.themoviedb.org/3/movie/";
     public static final String PERSON_BASE_URL = "http://api.themoviedb.org/3/person/";

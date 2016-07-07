@@ -47,9 +47,9 @@ public int getItemCount() {
         return mMovies.size();
         }
 public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    @Bind(R.id.movieImageView) ImageView mMovieImageView;
-    @Bind(R.id.movieNameTextView) TextView mNameTextView;
-    @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
+    @Bind(R.id.actorImageView) ImageView mMovieImageView;
+    @Bind(R.id.actorNameTextView) TextView mNameTextView;
+    @Bind(R.id.biographyTextView) TextView mDescriptionTextView;
     @Bind(R.id.ratingTextView) TextView mRatingTextView;
 
     private Context mContext;
